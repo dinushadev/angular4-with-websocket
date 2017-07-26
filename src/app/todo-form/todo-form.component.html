@@ -3,9 +3,10 @@
     <div class="form-container">
         <div class="row columns">
             <h3>Add todo</h3>
-            <label>
+         
                 <input type="text" formControlName="item" >
-            </label>
+                  <input type="date" formControlName="cDate" >
+          
             <input type="submit" class="button expanded" value="Add" [disabled]="!rForm.valid" >
         </div>
 

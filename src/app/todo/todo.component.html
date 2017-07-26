@@ -1,6 +1,14 @@
 <h3>todo list</h3>
-<ul>
-   <li *ngFor="let todo of todos" >
-     {{todo.text}}
-   </li>
-</ul>
+
+  <table>
+    <th>name</th>
+    <th>status</th>
+    <th>by</th>
+
+
+    <tr *ngFor="let todo of todos">
+      <td> {{todo.text}}</td>
+      <td> test1 </td>
+      <td>test33</td>
+    </tr>
+  </table>

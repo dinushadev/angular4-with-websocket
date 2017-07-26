@@ -20,7 +20,7 @@ import { TodoService } from './todo.service';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers:[TodoService,WebsocketService],
+  providers: [TodoService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

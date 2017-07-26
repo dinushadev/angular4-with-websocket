@@ -1,28 +1,28 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
-import {Observer} from "rxjs/Observer";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { Observer } from 'rxjs/Observer';
 
 @Injectable()
 export class WebsocketService {
-	private subject: Subject<MessageEvent>;
+private subject: Subject<MessageEvent>;
 
 
-	public connect(url: string): Subject<MessageEvent> {
-		if (!this.subject) {
-			this.subject = this.create(url);
-		}
-		return this.subject;
-	}
+public connect(url: string): Subject<MessageEvent> {
+if (!this.subject) {
+	this.subject = this.create(url);
+}
+return this.subject;
+}
 
-	private create(url: string): Subject<MessageEvent> {
-		let ws = new WebSocket(url);
+private create(url: string): Subject<MessageEvent> {
+let ws = new WebSocket(url);
 
-		let observable = Observable.create(
-			(obs: Observer<MessageEvent>) => {
-				ws.onmessage = obs.next.bind(obs);
-				ws.onerror   = obs.error.bind(obs);
-				ws.onclose   = obs.complete.bind(obs);
+let observable = Observable.create(
+	(obs: Observer<MessageEvent>) => {
+		ws.onmessage = obs.next.bind(obs);
+				ws.onerror = obs.error.bind(obs);
+				ws.onclose = obs.complete.bind(obs);
 
 				return ws.close.bind(ws);
 			});
@@ -37,4 +37,5 @@ export class WebsocketService {
 
 		return Subject.create(observer, observable);
 	}
-} // end class WebSocketService
+} 
+// end class WebSocketService
