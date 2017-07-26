@@ -12,7 +12,7 @@ export class TodoFormComponent implements OnInit {
 
   rForm: FormGroup;
   post: any;
-  item: string = '';
+  item: any;
 
   constructor(private fb: FormBuilder, private todo: TodoService) {
     this.rForm = fb.group({
@@ -23,9 +23,9 @@ export class TodoFormComponent implements OnInit {
   }
 
   addTodo(todo) {
-    this.item = todo.item;
-    console.log('new todo' + todo.item);
-    this.todo.messages.next(todo.item);
+    this.item = todo;
+    console.log('new todo: ' , todo);
+    this.todo.messages.next(todo);
   }
   ngOnInit() {
   }

@@ -14,19 +14,22 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.todos = [
       {
-        text: 'go to shoping'
+        text: 'go to shoping',
+        cDate: '2017-07-18'
       },
       {
-        text: 'go to office'
+        text: 'go to office',
+                cDate: '2017-07-20'
       },
       {
-        text: 'go to home'
+        text: 'go to home',
+        cDate: '2017-07-28'
       }
     ];
 
     this.todo.messages.subscribe(msg => {
       console.log('subcripb :' + msg);
-      this.todos.push({ text: msg });
+      this.todos.push({ text: msg.item, cDate: msg.cDate});
     });
 
   }
